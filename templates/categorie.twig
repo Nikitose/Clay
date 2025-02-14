@@ -1,0 +1,46 @@
+{% extends 'base.twig' %}
+
+{% block css %}
+    <link rel="stylesheet" href="css/categorie.css">
+{% endblock %}
+
+{% block main %}
+    <div class="top-categorie">
+        <h2>{{ theme.nom }}</h2>
+        <div class="trait-categorie"></div>
+        <ul>
+            {% for article in articles %}
+                <li>
+                    <a href="?page=article&id={{ article.id }}">
+                        {{ article.titre }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    {% if elements is not empty %}
+        <section class="annonces">
+            <div class="grid-articles">
+                {% for element in elements %}
+                    <div class="article">
+                        <a href="index.php?page=detail_element&id={{ element.id }}">
+                            <img src="upload/{{ element.image }}" alt="{{ element.nom }}">
+                            <div class="trait-2"></div>
+                            <div class="article-box-info">
+                                <h3>{{ element.nom }}</h3>
+                                {% if element.prix %}
+                                    <p>{{ element.prix }} €</p>
+                                {% else %}
+                                    {% if element.prix_heure %}
+                                        <p>{{ element.prix_heure }} €</p>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}

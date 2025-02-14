@@ -1,0 +1,31 @@
+{% extends 'base.twig' %}
+
+{% block css %}
+    <link rel="stylesheet" href="css/login.css">
+{% endblock %}  
+
+{% block main %}
+	<div class="box-main">
+		<h2>Se connecter</h2>
+		<form class="form-login" action="index.php?page=valid_login" method="POST">
+			<div class="centre">
+				<select name="role">
+					<option value="utilisateur">Utilisateur</option>
+					<option value="admin">Administrateur</option>
+				</select>
+			</div>
+
+			<label for="heure_fin">Nom :</label>
+			<input type="password" placeholder="Nom" name="login">
+
+			<label for="heure_fin">Prénom :</label>
+			<input type="password" placeholder="Prénom" name="login">
+
+			<label for="heure_fin">Mot de passe :</label>
+			<input type="password" placeholder="Mot de passe" name="login">
+			<div class="centre">
+				<input type="submit" value="Se connecter">
+			</div>
+		</form>
+	</div>
+{% endblock %}

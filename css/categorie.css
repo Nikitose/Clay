@@ -1,0 +1,31 @@
+.top-categorie {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-categorie h2 {
+    text-align: center;
+    font-size: 50px;
+    margin: 0;
+}
+
+.top-categorie ul {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.top-categorie ul li {
+	background-color: rgb(215, 215, 215);
+    padding: 4px 35px;
+	text-align: center;
+}
+
+.trait-categorie {
+    width: 50%;
+    height: 1px;
+    background-color: black;
+    margin-bottom: 10px;
+}

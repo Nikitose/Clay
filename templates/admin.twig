@@ -1,0 +1,34 @@
+{% extends 'base.twig' %}
+
+{% block css %}
+    <link rel="stylesheet" href="css/admin.css">
+{% endblock %}
+
+{% block nav2 %}
+    <li><a href="admin.php?page=logout">Se déconnecter</a></li>
+    <li><a href="index.php?page=404">Communauté</a></li>
+    <li><a href="index.php?page=404">Festivals</a></li>
+    <li><a href="index.php?page=a-propos">À propos</a></li>
+{% endblock %}
+
+{% block main %}
+    <div class="box-main a-main">
+    {% if role == 'admin' %}
+        <h2>Page Admin</h2>
+        <a href="admin.php?page=theme">Catégories</a>
+        <a href="createDB.php">Création des tables</a>
+    {% elseif role == 'utilisateur' %}
+        <h2>Page Utilisateur</h2>
+        <a href="admin.php?page=theme">Catégories</a>
+    {% endif %}
+    </div>
+{% endblock %}
+
+{% block footer_nav %}
+    <ul>
+        <li><a href="admin.php?page=logout">Se déconnecter</a></li>
+        <li><a href="index.php?page=404">Communauté</a></li>
+        <li><a href="index.php?page=404">Festivals</a></li>
+        <li><a href="index.php?page=a-propos">À propos</a></li>
+    </ul>
+{% endblock %}

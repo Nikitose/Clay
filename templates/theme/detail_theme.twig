@@ -1,0 +1,35 @@
+{% extends 'admin.twig' %}
+
+{% block main %}
+<div class="block view">
+	<h2>{{ theme.nom }}</h2>
+	<p>{{ theme.description }}</p>
+	<img src="upload/{{ theme.image }}" alt="image">
+</div>
+
+<div class="block a-main">
+	{% if role == 'admin' %}
+		<a href="admin.php?page=article&action=new&id={{ theme.id }}">Nouvelle sous-catégorie</a>
+	{% elseif role == 'utilisateur' %}
+	{% endif %}
+</div>
+
+<h3>Liste des sous-catégories existante :</h3>
+{% for article in liste_articles %}
+	<div class="block border-block">
+		<h3>{{ article.titre }}</h3>
+		<p class="control">
+			{% if role == 'admin' %}
+				<a href="admin.php?page=article&action=read&id={{ article.id }}">Voir le détail</a>
+				<a href="admin.php?page=article&action=exchange&id={{ article.id }}">Remonter</a>
+				<a href="admin.php?page=article&action=edit&id={{ article.id }}">Modifier</a>
+				<a href="admin.php?page=article&action=delete&id={{ article.id }}">Supprimer</a>
+			{% elseif role == 'utilisateur' %}
+				<a href="admin.php?page=article&action=read&id={{ article.id }}">Voir le détail</a>
+			{% endif %}
+		</p>
+	</div>
+		{% else %}
+		<p>Aucunes sous-categories présentes</p>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,117 @@
+main {
+    width: 100%;
+    margin: 0;
+    height: auto;
+}
+
+.box-main {
+    overflow: hidden;
+    height: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 12px;
+}
+
+.flex-colone {
+    height: auto;
+}
+
+.flex-colone img {
+    width: 100%; 
+    height: 45%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.grid-3 img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.flex-colone-texte {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 95%;
+    
+}
+
+.flex-colone-texte h2 {
+    margin: 0;
+}
+
+.flex-colone-texte .prix {
+    font-size: 20px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.flex-colone-texte .description {
+    margin: 50px 0 0 0;
+}
+
+/*****vendeur*****/
+
+.flex-space {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+
+.flex-centre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-centre p {
+    margin: 0 0 0 10px;
+}
+
+.rond {
+    width: 70px;
+    height: 70px;
+    background-color: rgb(215, 215, 215);
+    border-radius: 50%; 
+}
+
+.nombre_etoiles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 0 8px;
+}
+
+.etoile {
+    font-size: 30px;
+    height: 44px;
+}
+
+.centre {
+    margin-top: 100px;
+    height: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centre a {
+    background-color: rgb(226, 226, 226);
+	border: 1px solid black;
+    padding: 4px 130px;
+	text-align: center;
+}

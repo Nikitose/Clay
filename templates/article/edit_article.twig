@@ -1,0 +1,11 @@
+{% extends 'admin.twig' %}
+
+{% block main %}
+<form action="admin.php?page=article&action=update" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="id" readonly value="{{ article.id }}">
+	<input type="hidden" name="id_theme" value="{{ article.id_theme }}">
+	<input type="hidden" name="ordre" value="{{ article.ordre }}">
+	<p><input type="text" name="titre" placeholder="Titre" value="{{ article.titre }}"></p>
+	<p><input type="submit" value="Envoyer"></p>
+</form>
+{% endblock %}

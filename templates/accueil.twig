@@ -1,0 +1,77 @@
+{% extends 'base.twig' %}
+
+{% block css %}
+    <link rel="stylesheet" href="css/accueil.css">
+{% endblock %}  
+
+{% block nav %}
+    <div class="flex-space">
+        <div class="flex-colone">
+            <h1>Clay</h1>
+            <p class="sous-titre">Modélisation d'Aviation</p>
+        </div>
+        <div class="nav-1">
+            {% for theme in liste_themes %}
+                <a href="?page=theme&id={{ theme.id }}" class="flex lien-categorie">
+                    <div class="contour">
+                        <img src="upload/{{ theme.image }}" alt="{{ theme.nom }}">
+                    </div>
+                    <p>{{ theme.nom }}</p>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="flex-centre">
+        <img class="img-main" src="./img/avion.png">
+    </div>
+    <ul class="nav-2">
+        <li><a href="index.php?page=login">Se connecter</a></li>
+        <li><a href="index.php?page=404">Communauté</a></li>
+        <li><a href="index.php?page=404">Festivals</a></li>
+        <li><a href="index.php?page=a-propos">À propos</a></li>
+    </ul>
+{% endblock %}
+
+{% block main %}
+<div class="trait-2"></div>
+<h2>Bienvenue sur Clay - modélisme d’aviation</h2>
+<section class="block-presentation">
+    <div class="block-texte-presentation">
+        <p class="texte-justify">Chez Clay, le modélisme d’avions est bien plus qu’un simple passe-temp : c’est une passion qui unit créateurs et pilotes audacieux  prêts à repousser les limites du pilotage.</p>
+        <p class="texte-justify">Notre espace en ligne vous permet de louer, créer, acheter des pièces et apprendre à piloter des modèles réduits par l’intemediaire de modéliste passionnés.</p>
+        <p class="texte-centrer last-p">Si vous êtes déjà passionné de modélisme ou souhaitez le découvrir, Clay est fait pour vous.</p>
+        <a class="boutton" href="index.php?page=article&id=7">Découvrir</a>
+    </div>
+    <div class="block-img">
+        <img src="./img/accueil-1.jpg">
+        <img src="./img/accueil-2.png">
+        <img src="./img/accueil-3.jpg">
+        <img src="./img/accueil-4.png">
+    </div>
+</section>
+
+<section class="annonces">
+    <div class="trait-2"></div>
+    <h2>Dernieres annonces :</h2>
+    <div class="grid-articles">
+        {% for element in liste_2elements %}
+            <div class="article">
+                <a href="index.php?page=detail_element&id={{ element.id }}">
+                    <img src="upload/{{ element.image }}" alt="{{ element.nom }}">
+                    <div class="trait-2"></div>
+                    <div class="article-box-info">
+                        <h3>{{ element.nom }}</h3>
+                        {% if element.prix %}
+                            <p>{{ element.prix }} €</p>
+                        {% else %}
+                            {% if element.prix_heure %}
+                                <p>{{ element.prix_heure }} €</p>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

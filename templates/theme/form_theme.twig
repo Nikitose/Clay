@@ -1,0 +1,10 @@
+{% extends 'admin.twig' %}
+
+{% block main %}
+<form class="form-admin" action="admin.php?page=theme&action=create" method="post" enctype="multipart/form-data">
+	<input type="text" name="nom" placeholder="Nom">
+	<input type="text" name="description" placeholder="Description">
+	<input type="file" name="image">
+	<input type="submit" value="Crée">
+</form>
+{% endblock %}

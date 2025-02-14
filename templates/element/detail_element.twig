@@ -1,0 +1,49 @@
+{% extends 'base.twig' %}
+
+{% block css %}
+    <link rel="stylesheet" href="css/detail_element.css">
+{% endblock %}  
+
+{% block main %}
+    <section class="box-main">
+        <div class="flex-colone">
+            <img src="upload/{{ element.image }}" alt="{{ element.nom }}">
+            <div class="grid-3">
+                <img src="upload/{{ element.image }}" alt="{{ element.nom }}">
+                <img src="upload/{{ element.image }}" alt="{{ element.nom }}">
+                <img src="upload/{{ element.image }}" alt="{{ element.nom }}">
+            </div>
+        </div>
+        <div class="flex-colone-texte">
+            <h2>{{ element.nom }}</h2>
+            {% if element.prix %}
+                <p class="prix">{{ element.prix }} €</p>
+            {% else %}
+                {% if element.prix_heure %}
+                    <p class="prix">{{ element.prix_heure }} €</p>
+                {% endif %}
+            {% endif %}
+            <p class="description">{{ element.description }}</p>
+            <div class="trait-2"></div>
+            <div class="flex-space">
+                <div class="flex-centre">
+                    <div class="rond"></div>
+                    <p>{{ element.vendeur }}</p>
+                </div>
+                <div class="flex-centre">
+                    <p>note moyenne</p>
+                    <div class="nombre_etoiles">
+                        <span class="etoile">★</span>
+                        <span class="etoile">★</span>
+                        <span class="etoile">★</span>
+                        <span class="etoile">★</span>
+                        <span class="etoile full">★</span>
+                    </div>
+                </div>
+            </div>
+            <div class="centre">
+                <a href="index.php?page=form_acheter&id={{ element.id }}">Réserver cet élément</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

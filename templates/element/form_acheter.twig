@@ -1,0 +1,41 @@
+{% extends 'base.twig' %}
+
+{% block css %}
+    <link rel="stylesheet" href="css/acheter.css">
+{% endblock %} 
+
+{% block main %}
+    <section class="block">
+        <form action="admin.php?page=location&action=reservation" method="post" enctype="multipart/form-data">
+
+            <input type="hidden" name="id_article" value="{{ element.id }}">
+
+            {% if element.prix %}
+                <label for="adresse">Adresse de livraison :</label>
+                <input type="text" id="adresse" placeholder="Adresse de livraison" name="adresse" required>
+            {% else %}
+                {% if element.prix_heure %}
+                    <label for="date">Date de réservation :</label>
+                    <input type="date" id="date" name="date" required>
+
+                    <label for="heure_debut">Heure de début :</label>
+                    <input type="time" id="heure_debut" name="heure_debut" required>
+
+                    <label for="heure_fin">Heure de fin :</label>
+                    <input type="time" id="heure_fin" name="heure_fin">
+                {% endif %}
+            {% endif %}
+
+            <label for="email">Email :</label>
+            <input type="email" id="email" placeholder="Email" name="email" required>
+
+            <label for="telephone">Téléphone :</label>
+            <input type="tel" id="telephone" placeholder="Telephone" name="telephone" required>
+
+            <div class="centre">
+                <input type="submit" value="Valider la réservation de l'achat"></input>
+            </div>
+
+        </form>
+    </section>
+{% endblock %}

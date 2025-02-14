@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--Font-awesome-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+	<!--Fonts-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Chango&family=Concert+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Chango&family=Concert+One&family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Iceland&family=Matemasie&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	<!--CSS-->
+	<link rel="stylesheet" href="css/base.css">
+	{% block css %}
+	<link rel="stylesheet" href="css/visitor.css">
+	{% endblock %}
+	<!--Title-->
+	<title>Clay</title>
+</head>
+
+<body>
+	<header>
+		{% block nav %}
+		<nav class="nav-3">
+			<div>
+				<h1><a class="a-h1" href="../SAE_301/index.php">Clay</a></h1>
+				<img class="img-main" src="./img/avion.png">
+			</div>
+			<ul class="ul-categories">
+				{% for theme in liste_themes %}
+					<li><a href="?page=theme&id={{ theme.id }}">{{ theme.nom }}</a></li>
+				{% endfor %}
+			</ul>
+			<ul>
+				<li><div class="trait"></div></li>
+				{% block nav2 %}
+				<li><a href="index.php?page=login">Se connecter</a></li>
+				<li><a href="index.php?page=404">Communauté</a></li>
+				<li><a href="index.php?page=404">Festivals</a></li>
+				<li><a href="index.php?page=a-propos">À propos</a></li>
+				{% endblock %}
+			</ul>
+		</nav>
+		{% endblock %}
+	</header>
+
+	<main>
+	{% block main %}
+	
+	{% endblock %}
+	</main>
+
+	<footer>
+	{% block footer %}
+		<div class="footer-titre">
+			<h1><a class="a-h1" href="../SAE_301/index.php">Clay</a></h1>
+			<img src="./img/avion.png">
+		</div>
+		<p>©2024 Clay - Mentions légales - Politique de confidentialité</p>
+		<div>
+			{% block footer_nav %}
+			<ul>
+				<li><a href="index.php?page=login">Se connecter</a></li>
+				<li><a href="index.php?page=404">Communauté</a></li>
+				<li><a href="index.php?page=404">Festivals</a></li>
+				<li><a href="index.php?page=a-propos">À propos</a></li>
+			</ul>
+			{% endblock %}
+			<ul>
+				{% for theme in liste_themes %}
+					<li><a href="?page=theme&id={{ theme.id }}">{{ theme.nom }}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+	{% endblock %}
+	</footer>
+</body>
+
+</html>

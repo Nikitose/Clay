@@ -1,0 +1,40 @@
+.block {
+    width: 100%;
+    max-width: 368px;
+    margin: 0 auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    width: 350px;
+    margin-bottom: 4px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="time"] {
+    padding: 7px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+input {
+    width: 350px;
+	margin-bottom: 10px;
+	padding: 8px;
+}
+
+input[type="submit"] {
+	border: 0;
+}
+
+.centre {
+    width: 368px;
+}

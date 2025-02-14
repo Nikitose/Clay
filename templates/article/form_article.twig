@@ -1,0 +1,9 @@
+{% extends 'admin.twig' %}
+
+{% block main %}
+<form action="admin.php?page=article&action=create" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="id_theme" value="{{ id_theme }}">
+	<p><input type="text" name="titre" placeholder="Titre"></p>
+	<p><input type="submit" value="Envoyer"></p>
+</form>
+{% endblock %}

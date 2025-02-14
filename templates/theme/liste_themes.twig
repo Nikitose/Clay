@@ -1,0 +1,29 @@
+{% extends 'admin.twig' %}
+
+{% block main %}
+    {% if role == 'admin' %}
+		<div class="block a-main">
+			<a href="admin.php?page=theme&action=new">Nouvelle catégorie</a>
+		</div>
+    {% elseif role == 'utilisateur' %}
+    {% endif %}
+<h3>Liste des catégories existante :</h3>
+{% for theme in liste_themes %}
+<div class="block border-block">
+	<h3>{{ theme.nom }}</h3>
+	<p>{{ theme.description }}</p>
+	<img src="upload/{{ theme.image }}" alt="image">
+	<p class="control">
+	    {% if role == 'admin' %}
+			<a href="admin.php?page=theme&action=read&id={{ theme.id }}">Voir le détail</a>
+			<a href="admin.php?page=theme&action=edit&id={{ theme.id }}">Modifier</a>
+			<a href="admin.php?page=theme&action=delete&id={{ theme.id }}">Supprimer</a>
+		{% elseif role == 'utilisateur' %}
+			<a href="admin.php?page=theme&action=read&id={{ theme.id }}">Voir le détail</a>
+		{% endif %}
+	</p>
+</div>
+{% else %}
+<p>Aucun thème présent</p>
+{% endfor %}
+{% endblock %}

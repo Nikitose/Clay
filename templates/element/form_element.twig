@@ -1,0 +1,15 @@
+{% extends 'admin.twig' %}
+
+{% block main %}
+<h1>Ajouter un article</h1>
+<form class="block" action="admin.php?page=element&action=create" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id_article" value="{{ id_article }}">
+    <input type="text" name="nom" placeholder="Titre">
+    <textarea cols="100" rows="10" name="description" placeholder="Description"></textarea>
+    <input type="file" name="image">
+    <input type="text" name="prix" placeholder="Prix">
+    <input type="text" name="prix_heure" placeholder="Prix par heure">
+    <input type="text" name="vendeur" placeholder="Vendeur">
+    <p><input type="submit" value="Envoyer"></p>
+</form>
+{% endblock %}

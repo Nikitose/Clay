@@ -1,0 +1,28 @@
+.section-main {
+    width: 900px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 70px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+h2 {
+    font-size: 35px;
+    margin-top: 80px;
+}
+
+.square {
+    list-style: square;
+}
+
+.square li {
+    margin-bottom: 10px;
+}
+
+.border-buttom {
+    border-bottom: solid black 1px;
+    padding-bottom: 10px;
+}

@@ -1,0 +1,31 @@
+{% extends 'admin.twig' %}
+
+{% block main %}
+	<div class="block view">
+		<h3>{{ article.titre }}</h3>
+	</div>
+
+	<div class="block a-main">
+		<a href="admin.php?page=element&action=new&id={{ article.id }}">Ajouter un élément</a>
+	</div>
+
+	{% for element in liste_elements %}
+		<div class="block border-block">
+			<h3><b>Nom : </b>{{ element.nom }}</h3>
+			<p><b>Description : </b>{{ element.description }}</p>
+			<img src="upload/{{ element.image }}" alt="{{ element.nom }}">
+
+			<p><b>Prix : </b>{{ element.prix }} €</p>
+			<p><b>Prix par heure : </b>{{ element.prix_heure }} €</p>
+			<p><b>Vendeur : </b>{{ element.vendeur }}</p>
+
+			<p class="control">
+				<a href="admin.php?page=element&action=exchange&id={{ element.id }}">Remonter</a>
+				<a href="admin.php?page=element&action=edit&id={{ element.id }}">Modifier</a>
+				<a href="admin.php?page=element&action=delete&id={{ element.id }}">Supprimer</a>
+			</p>
+		</div>
+	{% else %}
+		<p>Aucun élément présent</p>
+	{% endfor %}
+{% endblock %}

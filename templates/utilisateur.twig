@@ -1,0 +1,37 @@
+{% extends 'base.twig' %}
+
+{% block css %}
+    <link rel="stylesheet" href="css/admin.css">
+{% endblock %}
+
+{% block main %}
+    <h2>Utilisateur</h2>
+    <p>Ajouter un article</p>
+    <form class="block" action="proprietaire.php?page=element&action=create2" method="post" enctype="multipart/form-data">
+
+        <label for="categorie">Catégorie :</label>
+        <select name="categorie" id="categorie" required>
+            <option value="" disabled selected>Choisissez une catégorie</option>
+            {% for theme in liste_themes %}
+                <option value="{{  theme.id }}">{{  theme.nom }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="sous_categorie">Sous-catégorie :</label>
+        <select name="sous_categorie" id="sous_categorie" required>
+            <option value="" disabled selected>Choisissez une sous-catégorie</option>
+            {% for article in articles %}
+                <option value="{{ article.id }}">{{ article.titre }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="hidden" name="id_article" value="{{ id_article }}">
+        <input type="text" name="nom" placeholder="Titre">
+        <textarea cols="100" rows="10" name="description" placeholder="Description"></textarea>
+        <input type="file" name="image">
+        <input type="text" name="prix" placeholder="Prix">
+        <input type="text" name="prix_heure" placeholder="Prix par heure">
+        <input type="text" name="vendeur" placeholder="Vendeur">
+        <p><input type="submit" value="Envoyer"></p>
+    </form>
+{% endblock %}
